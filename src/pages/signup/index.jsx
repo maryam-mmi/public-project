@@ -44,7 +44,8 @@ class Signup extends React.Component {
                 socialSecurityNumber: false,
                 phoneNumber: false,
                 email: false,
-                country: false
+                country: false,
+                ssnErrMessage: ''
             }
         };
     }
@@ -93,7 +94,7 @@ class Signup extends React.Component {
         switch (name) {
             case 'socialSecurityNumber':
                 formErrors.socialSecurityNumber =
-                    value.length === 10 && this.isValid(value.slice(4,6), value.slice(2,4), value.slice(0,2))
+                    value.length === 10 && this.isValid(value.slice(4,6) * 1, value.slice(2,4) * 1, value.slice(0,2) * 1)
                         ? false
                         : true
                 break;
@@ -154,7 +155,8 @@ class Signup extends React.Component {
                                 onChange={e => this.onSSNChange(e)}
                                 onBlur={e => this.onBlur(e)}
                                 error={formErrors.socialSecurityNumber}
-                                noValidate />
+                                helperText={formErrors.ssnErrMessage}
+                                noValidate/>
                             <Input
                                 label='Phone number'
                                 type='tel'

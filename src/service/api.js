@@ -41,7 +41,7 @@ import mockData from './mockData';
 export const fetchCountries = () => {
   // Since the API CORS is not enable on server I cannot fetch data from server and I mocked data
   return new Promise((resolve) => {
-    resolve(mockData.json());
+    resolve(mockData);
   });
   // let query = [];
   // return fetchData({

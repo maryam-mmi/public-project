@@ -35,7 +35,6 @@ const executingAPI = () => ({
     return (dispatch) => {
       dispatch(executingAPI());
       return fetchCountries()
-        .then(response => response.json())
         .then(json => dispatch(receivedData(json)))
         .catch(e => dispatch(errorOnExecuteAPIRequest(e)));
     };
